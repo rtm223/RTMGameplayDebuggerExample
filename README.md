@@ -1,7 +1,7 @@
 # RTMGameplayDebuggerExample
 This is a toy example for setting up a plugin module that contains a GameplayDebbugger categor
 
-## Ratioale
+## Rationale
 The official documentation for Gameplay Debuggers in Unreal is several years out of date and references an old framework that no longer exists. 
 While there are several Gameplay Debugger examples in the engine code (search `: public FGameplayDebuggerCategory`), these all take the approach of wrapping all code in `#if WITH_GAMEPLAY_DEBUGGER_MENU` which I personally find clunky and annoying
 The reasoning for this is that the Gameplay Debugger framework does not exist in Shipping and Test Build configs, so needs excluding somehow. I just prefer to do that in a module that gets completely excluded for those builds. Benefits: 
