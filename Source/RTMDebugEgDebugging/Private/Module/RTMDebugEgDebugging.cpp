@@ -9,7 +9,6 @@ DEFINE_LOG_CATEGORY(RTMDebugEgDebugging);
 
 IMPLEMENT_MODULE(FRTMDebugEgDebuggingModule, TemplateModule)
 
-#undef LOCTEXT_NAMESPACE
 void FRTMDebugEgDebuggingModule::StartupModule()
 {
 	IModuleInterface::StartupModule();
@@ -17,3 +16,5 @@ void FRTMDebugEgDebuggingModule::StartupModule()
 	IGameplayDebugger& gameplayDebuggerModule = IGameplayDebugger::Get();
 	gameplayDebuggerModule.RegisterCategory("Example", IGameplayDebugger::FOnGetCategory::CreateStatic(&FRTMDebugCategory_Example::MakeInstance), EGameplayDebuggerCategoryState::Disabled, 9);
 }
+
+#undef LOCTEXT_NAMESPACE
