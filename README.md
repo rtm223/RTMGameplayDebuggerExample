@@ -16,7 +16,7 @@ In this plugin, there are 2 modules
 * GameplayDebugEgDebugging - A debugging module, named {PluginName}Debugging, which is excluded from test and shipping builds
 
 ### Conditional Module Exclusion
-Exclusion from test and shipping is donw in the UPlugin file, using an optional TargetConfigurationDenyList
+Exclusion from test and shipping is donw in the UPlugin file, using an optional `TargetConfigurationDenyList`
 ```json
 "Modules": [
 		{
@@ -46,6 +46,15 @@ void FRTMDebugEgDebuggingModule::StartupModule()
 	IGameplayDebugger& gameplayDebuggerModule = IGameplayDebugger::Get();
 	gameplayDebuggerModule.RegisterCategory("Example", IGameplayDebugger::FOnGetCategory::CreateStatic(&FRTMDebugCategory_Example::MakeInstance), EGameplayDebuggerCategoryState::Disabled, 9);
 }
+```
+
+## Implementation as a Game Module
+To implement a game module as a gameplay debugger module, you will need to
+1. Add the same `TargetConfigurationDenyList` as above to you UProject file
+2. Add the conditional module include to your Target.cs file(s):
+```c#
+if(Target.Configuration != UnrealTargetConfiguration.Test && Target.Configuration != UnrealTargetConfiguration.Shipping)
+	ExtraModuleNames.Add("RTMDebugEgDebugging");
 ```
 
 ## Usage in-Game
