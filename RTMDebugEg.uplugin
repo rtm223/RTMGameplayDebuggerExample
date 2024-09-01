@@ -1,0 +1,38 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "Gameplay Debugger Example",
+	"Description": "Toy example for creating a Gameplay Debugger Module",
+	"Category": "Richard Meredith",
+	"CreatedBy": "Richard Meredith",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "RTMDebugEg",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "RTMDebugEgDebugging",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"TargetConfigurationDenyList": [
+				"Test",
+				"Shipping"
+			]
+		}
+	],
+	"PreBuildSteps": {
+		"Win64": [
+			"if exist $(PluginDir)\\Binaries\\Win64\\*.patch* del $(PluginDir)\\Binaries\\Win64\\*.patch*"
+		]
+	}
+}
