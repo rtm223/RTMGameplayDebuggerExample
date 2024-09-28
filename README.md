@@ -1,5 +1,5 @@
 # RTMGameplayDebuggerExample
-This is a toy example for setting up a plugin module that contains a GameplayDebbugger categor
+This is a toy example for setting up a plugin module that contains a GameplayDebbugger category
 
 ## Rationale
 The official documentation for Gameplay Debuggers in Unreal is several years out of date and references an old framework that no longer exists. 
